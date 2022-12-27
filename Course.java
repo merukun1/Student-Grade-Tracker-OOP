@@ -5,13 +5,18 @@ import java.util.List;
 
 public class Course{
     private String name;
+    static String Ccourse;
     private int creditHours;
     private List<Grade> grades;
 
-    public Course(String name, int creditHours) {
+    public Course(String Ccourse, String name, int creditHours) {
         this.name = name;
         this.creditHours = creditHours;
+        this.Ccourse = Ccourse;
         this.grades = new ArrayList<>();
+    }
+    public String getCourse() {
+        return Ccourse;
     }
     public int getCreditHours() {
         return creditHours;
