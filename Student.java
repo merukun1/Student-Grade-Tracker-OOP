@@ -41,6 +41,7 @@ public class Student {
     public String generateTranscript() {
         StringBuilder transcript = new StringBuilder();
         transcript.append(String.format("Transcript for %s (ID: %d)\n\n", name, studentId));
+        System.out.println("College Course: "+Course.Ccourse);
         for (Course course : courses) {
           transcript.append(String.format("%s: %.2f (%s)\n", course.getName(), course.calculateGradePoints(), course.getLetterGrade()));
         }
