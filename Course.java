@@ -12,7 +12,7 @@ public class Course{
     public Course(String Ccourse, String name, int creditHours) {
         this.name = name;
         this.creditHours = creditHours;
-        this.Ccourse = Ccourse;
+        Course.Ccourse = Ccourse;
         this.grades = new ArrayList<>();
     }
     public String getCourse() {
@@ -44,16 +44,26 @@ public class Course{
     }
     public String getLetterGrade() {
         double grade = calculateGradePoints();
-        if (grade >= 90) {
-          return "A";
-        } else if (grade >= 80) {
-          return "B";
-        } else if (grade >= 70) {
-          return "C";
-        } else if (grade >= 60) {
-          return "D";
-        } else {
-          return "F";
-        }
+        if (grade >= 90 && grade <= 100) {
+          return "Outstanding";
+      } else if (grade >= 80 && grade <= 89) {
+          return "Excellent";
+      } else if (grade >= 70 && grade <= 79) {
+          return "Very Good";
+      } else if (grade >= 60 && grade <= 69) {
+          return "Good";
+      } else if (grade >= 50 && grade <= 59) {
+          return "Sactisfactory";
+      } else if (grade >= 40 && grade <= 49) {
+        return "Acceptable";
+      } else if (grade >= 30 && grade <= 39) {
+        return "Partially Aceeptable";
+      } else if (grade >= 20 && grade <= 29) {
+        return "Insufficient";
+      } else if (grade >= 0 && grade <= 19) {
+        return "Failed";
+      }else {
+        return " ";
       }
-}
+      }
+ }
