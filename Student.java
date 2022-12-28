@@ -38,14 +38,40 @@ public class Student {
         }
         return totalQualityPoints / totalCredits;
     }
+    public String getLetterGrade2() {
+        if (CalculateGPA() >= 90 && CalculateGPA() <= 100) {
+          return "Outstanding";
+      } else if (CalculateGPA() >= 80 && CalculateGPA() <= 89) {
+          return "Excellent";
+      } else if (CalculateGPA() >= 70 && CalculateGPA() <= 79) {
+          return "Very Good";
+      } else if (CalculateGPA() >= 60 && CalculateGPA() <= 69) {
+          return "Good";
+      } else if (CalculateGPA() >= 50 && CalculateGPA() <= 59) {
+          return "Sactisfactory";
+      } else if (CalculateGPA() >= 40 && CalculateGPA() <= 49) {
+        return "Acceptable";
+      } else if (CalculateGPA() >= 30 && CalculateGPA() <= 39) {
+        return "Partially Aceeptable";
+      } else if (CalculateGPA() >= 20 && CalculateGPA() <= 29) {
+        return "Insufficient";
+      } else if (CalculateGPA() >= 0 && CalculateGPA() <= 19) {
+        return "Failed";
+      }else {
+        return " ";
+      }
+      }
+
     public String generateTranscript() {
         StringBuilder transcript = new StringBuilder();
+        System.out.println();
         transcript.append(String.format("Transcript for %s (ID: %d)\n\n", name, studentId));
-        System.out.println("College Course: "+Course.Ccourse);
+        System.out.println("\nCollege Course: "+Course.Ccourse);
         for (Course course : courses) {
           transcript.append(String.format("%s: %.2f (%s)\n", course.getName(), course.calculateGradePoints(), course.getLetterGrade()));
         }
-        transcript.append(String.format("\nGPA: %.2f", CalculateGPA()));
+        transcript.append(String.format("\nGPA: %.2f (%s)", CalculateGPA(), getLetterGrade2()));
+        System.out.println();
         return transcript.toString();
       }
     
